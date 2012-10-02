@@ -45,7 +45,7 @@ class ArticlesController < ApplicationController
 
 		respond_to do |format|
 			if @article.save
-				format.html { redirect_to @article, :notice => 'Article was successfully created.' }
+				format.html { redirect_to @article, :notice => t('articles.create_success') }
 				format.json { render :json => @article, :status => :created, :location => @article }
 			else
 				format.html { render :action => "new" }
@@ -61,7 +61,7 @@ class ArticlesController < ApplicationController
 
 		respond_to do |format|
 			if @article.update_attributes(params[:article])
-				format.html { redirect_to @article, :notice => 'Article was successfully updated.' }
+				format.html { redirect_to @article, :notice => t('articles.update_success') }
 				format.json { head :ok }
 			else
 				format.html { render :action => "edit" }
@@ -85,6 +85,6 @@ class ArticlesController < ApplicationController
 	def notify_friend
 		@article = Article.find(params[:id])
 		Notifier.email_friend(@article, params[:name], params[:email]).deliver
-		redirect_to @article, :notice => 'Successfully sent a message to your friend'
+		redirect_to @article, :notice => t('articles.notify_friend_success')
 	end
 end
