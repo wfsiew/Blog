@@ -1,10 +1,10 @@
 <%= div_for article do %>
     <h3>
-        <%= link_to article.title, article %>
+        <%= link_to(article.title, article) %>
         <% if article.owned_by? current_user %>
         <span class="actions">
-            <%= link_to t('general.edit'), edit_article_path(article) %>
-            <%= link_to t('general.delete'), article, :confirm => t('general.are_you_sure'), :method => :delete %>
+            <%= link_to(t('general.edit'), edit_article_path(article)) %>
+            <%= link_to(t('general.delete'), article, :confirm => t('general.are_you_sure'), :method => :delete) %>
         </span>
         <% end %>
     </h3>

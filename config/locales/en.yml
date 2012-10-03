@@ -10,7 +10,7 @@ en:
     delete: Delete
     edit: Edit
     editing: Editing
-    footer: A simple blog built for the book
+    footer: A simple blog
     email_a_friend: Email a friend
     search: Search
     send_email: Send email
@@ -20,9 +20,15 @@ en:
     your_name: Your name
     your_friend_email: Your friend's email
     or: or
+    submit: Submit
   application:
     access_denied: Please log in to continue
   articles:
+    title: Title
+    location: Location
+    categories: Categories
+    excerpt: Excerpt
+    published_at: Published at
     editing_article: Editing Article
     listing_articles: Listing Articles
     new_article: New Article
@@ -37,6 +43,7 @@ en:
     editing_user: Editing user
     create_success: User successfully added.
     update_success: Updated user information successfully.
+    password_confirmation: Password confirmation
   sessions:
     email: Email
     password: Password

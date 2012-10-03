@@ -17,9 +17,15 @@ pt-br:
     your_name: Seu nome
     your_friend_email: O email do seu amigo
     or: ou
+    submit: Submeter
   application:
     access_denied: "Por favor, efetue o login para continuar"
   articles:
+    title: Título
+    location: Localização
+    categories: Categorias
+    excerpt: Trecho
+    published_at: Publicado em
     editing_article: Editando Artigo
     listing_articles: Listando Artigos
     new_article: Novo Artigo
@@ -34,6 +40,7 @@ pt-br:
     editing_user: Editando usuario
     create_success: Usuario editado com sucesso.
     update_success: Usuario atualizado com sucesso.
+    password_confirmation: Confirmação de senha
   sessions:
     email: Email
     password: Senha
