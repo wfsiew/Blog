@@ -170,7 +170,7 @@
 
           
           <div class="method-source-code" id="language_selector-source">
-            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 8</span>
+            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">language_selector</span>
   <span class="ruby-keyword">if</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">locale</span> <span class="ruby-operator">==</span> <span class="ruby-value">:en</span>
     <span class="ruby-identifier">link_to</span>(<span class="ruby-string">'Pt'</span>, <span class="ruby-identifier">url_for</span>(<span class="ruby-value">:locale</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'pt-br'</span>))
@@ -192,7 +192,7 @@
         
         <div class="method-heading">
           <span class="method-name">submit_or_cancel</span><span
-            class="method-args">(form, name='Cancel')</span>
+            class="method-args">(form, name='general.cancel')</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -206,8 +206,11 @@ arguments: Form object and the cancel link name</p>
           
           <div class="method-source-code" id="submit_or_cancel-source">
             <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 4</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">submit_or_cancel</span>(<span class="ruby-identifier">form</span>, <span class="ruby-identifier">name</span>=<span class="ruby-string">'Cancel'</span>)
-        <span class="ruby-identifier">form</span>.<span class="ruby-identifier">submit</span> <span class="ruby-operator">+</span> <span class="ruby-string">' or '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">link_to</span>(<span class="ruby-identifier">name</span>, <span class="ruby-string">'javascript:history.go(-1);'</span>, <span class="ruby-value">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'cancel'</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">submit_or_cancel</span>(<span class="ruby-identifier">form</span>, <span class="ruby-identifier">name</span>=<span class="ruby-string">'general.cancel'</span>)
+  <span class="ruby-identifier">submit</span> = <span class="ruby-identifier">form</span>.<span class="ruby-identifier">submit</span>(<span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">'general.submit'</span>))
+  <span class="ruby-identifier">orstr</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">'general.or'</span>)
+  <span class="ruby-identifier">cancel</span> = <span class="ruby-identifier">link_to</span>(<span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-identifier">name</span>), <span class="ruby-string">'javascript:history.go(-1);'</span>, <span class="ruby-value">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'cancel'</span>)
+  <span class="ruby-identifier">raw</span>(<span class="ruby-node">&quot;#{submit} #{orstr} #{cancel}&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- submit_or_cancel-source -->
           
