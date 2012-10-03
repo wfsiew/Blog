@@ -7,9 +7,9 @@ module ApplicationHelper
 	
 	def language_selector
 	  if I18n.locale == :en
-	    link_to 'Pt', url_for(:locale => 'pt-br')
+	    link_to('Pt', url_for(:locale => 'pt-br'))
 	  else
-	    link_to 'En', url_for(:locale => 'en')
+	    link_to('En', url_for(:locale => 'en'))
 	  end
 	end
 end

@@ -32,6 +32,6 @@ class ApplicationController < ActionController::Base
 	helper_method :logged_in?
 
 	def access_denied
-		redirect_to login_path, :notice => t('application.access_denied') and return false
+		redirect_to(login_path, :notice => t('application.access_denied')) and return false
 	end
 end
