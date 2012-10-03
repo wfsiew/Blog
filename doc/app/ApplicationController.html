@@ -78,6 +78,8 @@
     
     <li><a href="#method-i-logged_in-3F">#logged_in?</a>
     
+    <li><a href="#method-i-set_locale">#set_locale</a>
+    
   </ul>
 </nav>
 
@@ -104,8 +106,6 @@
     <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
   
     <li><a href="./Article.html">Article</a>
-  
-    <li><a href="./ArticleHelper.html">ArticleHelper</a>
   
     <li><a href="./ArticlesController.html">ArticlesController</a>
   
@@ -182,9 +182,9 @@
 
           
           <div class="method-source-code" id="access_denied-source">
-            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 28</span>
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">access_denied</span>
-  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">login_path</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Please log in to continue'</span> <span class="ruby-keyword">and</span> <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+        <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">login_path</span>, <span class="ruby-value">:notice</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">'application.access_denied'</span>)) <span class="ruby-keyword">and</span> <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- access_denied-source -->
           
@@ -213,9 +213,9 @@ any controller you want to protect</p>
 
           
           <div class="method-source-code" id="authenticate-source">
-            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 16</span>
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">authenticate</span>
-  <span class="ruby-identifier">logged_in?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">access_denied</span>
+        <span class="ruby-identifier">logged_in?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">access_denied</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- authenticate-source -->
           
@@ -243,10 +243,10 @@ any controller you want to protect</p>
 
           
           <div class="method-source-code" id="current_user-source">
-            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 6</span>
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">current_user</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:user_id</span>]
-  <span class="ruby-ivar">@current_user</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">session</span>[<span class="ruby-value">:user_id</span>])
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:user_id</span>]
+        <span class="ruby-ivar">@current_user</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">session</span>[<span class="ruby-value">:user_id</span>])
 <span class="ruby-keyword">end</span></pre>
           </div><!-- current_user-source -->
           
@@ -274,9 +274,9 @@ any controller you want to protect</p>
 
           
           <div class="method-source-code" id="logged_in-3F-source">
-            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 21</span>
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">logged_in?</span>
-  <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">User</span>
+        <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">User</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- logged_in-3F-source -->
           
@@ -286,6 +286,36 @@ any controller you want to protect</p>
 
         
       </div><!-- logged_in-3F-method -->
+
+    
+      <div id="method-i-set_locale" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_locale</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the locale from parameters</p>
+          
+
+          
+          <div class="method-source-code" id="set_locale-source">
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_locale</span>
+  <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">locale</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:locale</span>] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:locale</span>].<span class="ruby-identifier">blank?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- set_locale-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- set_locale-method -->
 
     
     </section><!-- protected-instance-method-details -->

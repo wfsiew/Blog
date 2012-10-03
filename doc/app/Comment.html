@@ -99,8 +99,6 @@
   
     <li><a href="./Article.html">Article</a>
   
-    <li><a href="./ArticleHelper.html">ArticleHelper</a>
-  
     <li><a href="./ArticlesController.html">ArticlesController</a>
   
     <li><a href="./ArticlesHelper.html">ArticlesHelper</a>
@@ -178,7 +176,9 @@
           <div class="method-source-code" id="article_should_be_published-source">
             <pre><span class="ruby-comment"># File app/models/comment.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">article_should_be_published</span>
-  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:article_id</span>, <span class="ruby-string">&quot;is not published yet&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">article</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">article</span>.<span class="ruby-identifier">published?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">article</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">article</span>.<span class="ruby-identifier">published?</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:article_id</span>, <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">'comment.errors.not_published_yet'</span>))
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- article_should_be_published-source -->
           

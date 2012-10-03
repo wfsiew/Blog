@@ -101,8 +101,6 @@
   
     <li><a href="./Article.html">Article</a>
   
-    <li><a href="./ArticleHelper.html">ArticleHelper</a>
-  
     <li><a href="./ArticlesController.html">ArticlesController</a>
   
     <li><a href="./ArticlesHelper.html">ArticlesHelper</a>
@@ -178,10 +176,10 @@
 
           
           <div class="method-source-code" id="comment_added-source">
-            <pre><span class="ruby-comment"># File app/mailers/notifier.rb, line 17</span>
+            <pre><span class="ruby-comment"># File app/mailers/notifier.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">comment_added</span>(<span class="ruby-identifier">comment</span>)
   <span class="ruby-ivar">@article</span> = <span class="ruby-identifier">comment</span>.<span class="ruby-identifier">article</span>
-  <span class="ruby-identifier">mail</span> <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@article</span>.<span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>, <span class="ruby-identifier">subject</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;New comment for '#{@article.title}'&quot;</span>
+  <span class="ruby-identifier">mail</span>(<span class="ruby-value">:to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@article</span>.<span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>, <span class="ruby-value">:subject</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;New comment for '#{@article.title}'&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- comment_added-source -->
           
@@ -212,13 +210,13 @@ following lookup:</p>
 
           
           <div class="method-source-code" id="email_friend-source">
-            <pre><span class="ruby-comment"># File app/mailers/notifier.rb, line 9</span>
+            <pre><span class="ruby-comment"># File app/mailers/notifier.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">email_friend</span>(<span class="ruby-identifier">article</span>, <span class="ruby-identifier">sender_name</span>, <span class="ruby-identifier">receiver_email</span>)
   <span class="ruby-ivar">@article</span> = <span class="ruby-identifier">article</span>
   <span class="ruby-ivar">@sender_name</span> = <span class="ruby-identifier">sender_name</span>
-  
+
   <span class="ruby-identifier">attachments</span>[<span class="ruby-string">&quot;rails.png&quot;</span>] = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">Rails</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;app/assets/images/rails.png&quot;</span>))
-  <span class="ruby-identifier">mail</span> <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-identifier">receiver_email</span>, <span class="ruby-identifier">subject</span><span class="ruby-operator">:</span> <span class="ruby-string">'Interesting Article'</span>
+  <span class="ruby-identifier">mail</span>(<span class="ruby-value">:to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">receiver_email</span>, <span class="ruby-value">:subject</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'Interesting Article'</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- email_friend-source -->
           
