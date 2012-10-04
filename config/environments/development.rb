@@ -40,7 +40,7 @@ Blog::Application.configure do
     :enable_starttls_auto => true,
     :port => 587,
     :authentication => :plain,
-    :user_name => 'dixonsiew',
-    :password => '99wad073'
+    :user_name => 'username',
+    :password => 'pwd'
   }
 end
