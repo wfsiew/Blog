@@ -36,8 +36,11 @@ Blog::Application.configure do
   config.assets.debug = true
   
   ActionMailer::Base.smtp_settings = {
-    :address => '127.0.0.1',
-    :enable_starttls_auto => false,
-    :port => 25
+    :address => 'smtp.gmail.com',
+    :enable_starttls_auto => true,
+    :port => 587,
+    :authentication => :plain,
+    :user_name => 'dixonsiew',
+    :password => '99wad073'
   }
 end
