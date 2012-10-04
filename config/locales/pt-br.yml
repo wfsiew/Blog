@@ -71,6 +71,11 @@ pt-br:
               blank: "não pode ficar em branco"
             body:
               blank: "não pode ficar em branco"
+        user:
+          attributes:
+            password:
+              confirmation: "Senha não corresponde confirmação"
+              too_short: "A senha é muito curto (mínimo é de quatro caracteres)"
 
   date:
     formats:
