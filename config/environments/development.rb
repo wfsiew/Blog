@@ -39,7 +39,7 @@ Blog::Application.configure do
     :address => 'smtp.gmail.com',
     :enable_starttls_auto => true,
     :port => 587,
-    :authentication => :plain,
+    :authentication => :login,
     :user_name => 'username',
     :password => 'pwd'
   }
